@@ -18,12 +18,8 @@
             --md-surface-variant: #E7E0EC;
             --md-on-surface-variant: #49454F;
             --md-outline: #79747E;
-            --md-outline-variant: #CAC4D0;
-            --md-error: #B3261E;
             --elevation-1: 0px 1px 2px rgba(0,0,0,0.3), 0px 1px 3px 1px rgba(0,0,0,0.15);
             --elevation-2: 0px 1px 2px rgba(0,0,0,0.3), 0px 2px 6px 2px rgba(0,0,0,0.15);
-            --elevation-3: 0px 4px 8px 3px rgba(0,0,0,0.15), 0px 1px 3px rgba(0,0,0,0.3);
-            --transition-speed: 0.3s;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -35,69 +31,35 @@
             flex-direction: column;
             overflow-x: hidden;
             -webkit-tap-highlight-color: transparent;
-            user-select: none;
         }
 
-        /* ========== 顶部栏 ========== */
         .top-app-bar {
             background: var(--md-surface);
-            padding: 0 16px;
-            height: 64px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            padding: 0 16px; height: 64px;
+            display: flex; align-items: center; gap: 12px;
             box-shadow: var(--elevation-1);
-            position: sticky;
-            top: 0;
-            z-index: 20;
-            backdrop-filter: blur(20px);
+            position: sticky; top: 0; z-index: 20;
         }
         .top-app-bar h1 { font-size: 20px; font-weight: 500; flex: 1; }
-        .top-app-bar .icon { font-size: 24px; }
 
-        /* ========== 主布局 ========== */
         .main-layout {
-            display: flex;
-            flex: 1;
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-            padding: 20px 16px;
-            gap: 20px;
-            transition: all var(--transition-speed);
+            display: flex; flex: 1;
+            max-width: 1400px; margin: 0 auto; width: 100%;
+            padding: 20px 16px; gap: 20px;
         }
 
-        /* ========== 左侧面板（桌面端） ========== */
         .avatar-panel {
-            width: 340px;
-            flex-shrink: 0;
+            width: 340px; flex-shrink: 0;
             background: var(--md-surface-variant);
-            border-radius: 28px;
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
+            border-radius: 28px; padding: 24px;
+            display: flex; flex-direction: column; align-items: center; gap: 16px;
             box-shadow: var(--elevation-1);
-            height: fit-content;
-            position: sticky;
-            top: 84px;
-            transition: all var(--transition-speed);
+            height: fit-content; position: sticky; top: 84px;
         }
         .avatar-frame {
-            width: 100%;
-            aspect-ratio: 3/4;
-            background: var(--md-primary-container);
-            border-radius: 20px;
-            overflow: hidden;
+            width: 100%; aspect-ratio: 3/4;
+            border-radius: 20px; overflow: hidden;
             box-shadow: var(--elevation-2);
-        }
-        .avatar-frame iframe { width: 100%; height: 100%; border: none; }
-        .avatar-fallback {
-            width: 100%; height: 100%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 100px;
-            background: linear-gradient(135deg, var(--md-primary), #7D5260);
         }
         .avatar-panel h2 { font-size: 18px; font-weight: 500; color: var(--md-on-surface-variant); }
         .chip-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
@@ -110,17 +72,10 @@
         }
         .chip.active { background: var(--md-secondary-container); color: var(--md-on-secondary-container); border-color: transparent; }
 
-        /* ========== 右侧对话区 ========== */
         .chat-panel {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            background: var(--md-surface);
-            border-radius: 28px;
-            padding: 20px;
-            box-shadow: var(--elevation-1);
-            min-width: 0;
-            transition: all var(--transition-speed);
+            flex: 1; display: flex; flex-direction: column;
+            background: var(--md-surface); border-radius: 28px;
+            padding: 20px; box-shadow: var(--elevation-1); min-width: 0;
         }
         .model-select {
             width: 100%; padding: 12px 16px;
@@ -132,10 +87,9 @@
             flex: 1; overflow-y: auto;
             display: flex; flex-direction: column; gap: 12px;
             padding: 12px 0; min-height: 300px;
-            scroll-behavior: smooth;
         }
         .chat-history::-webkit-scrollbar { width: 4px; }
-        .chat-history::-webkit-scrollbar-thumb { background: var(--md-outline-variant); border-radius: 4px; }
+        .chat-history::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
         .message { display: flex; flex-direction: column; max-width: 85%; animation: msgIn 0.3s ease-out; }
         @keyframes msgIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .message.user { align-self: flex-end; align-items: flex-end; }
@@ -161,62 +115,51 @@
             display: flex; align-items: center; justify-content: center;
             transition: all 0.2s; box-shadow: var(--elevation-2); font-family: inherit;
         }
-        .fab:hover { box-shadow: var(--elevation-3); background: var(--md-primary); color: var(--md-on-primary); }
+        .fab:hover { background: var(--md-primary); color: var(--md-on-primary); }
         .fab:disabled { opacity: 0.5; }
 
-        /* ========== 底部导航（移动端） ========== */
-        .bottom-nav {
-            display: none;
-            position: fixed; bottom: 0; left: 0; right: 0;
-            background: var(--md-surface); box-shadow: var(--elevation-2);
-            padding: 8px 16px calc(8px + env(safe-area-inset-bottom));
-            z-index: 20;
+        /* CSS 数字人动画 */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
-        .bottom-nav .nav-items { display: flex; justify-content: space-around; }
-        .bottom-nav .nav-item {
-            display: flex; flex-direction: column; align-items: center; gap: 4px;
-            padding: 6px 16px; border-radius: 16px; cursor: pointer;
-            color: var(--md-on-surface-variant); font-size: 10px; font-weight: 500;
-            transition: all 0.2s;
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.15); }
         }
-        .bottom-nav .nav-item.active { background: var(--md-secondary-container); color: var(--md-on-secondary-container); }
-        .bottom-nav .nav-item .nav-icon { font-size: 22px; }
+        @keyframes thinkingPulse {
+            0%, 100% { background: #4caf50; }
+            50% { background: #ff9800; }
+        }
+        @keyframes dots {
+            0%, 20% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        .status-dot {
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            background: #4caf50;
+            transition: background 0.3s;
+        }
+        .status-dot.thinking { animation: thinkingPulse 1s infinite; }
+        .dots span {
+            display: inline-block;
+            animation: dots 1.2s infinite;
+            font-size: 20px;
+            line-height: 1;
+        }
+        .dots span:nth-child(2) { animation-delay: 0.2s; }
+        .dots span:nth-child(3) { animation-delay: 0.4s; }
 
-        /* ========== 平板适配 ========== */
-        @media (max-width: 1024px) and (min-width: 769px) {
-            .main-layout { padding: 16px 12px; gap: 12px; }
-            .avatar-panel { width: 280px; padding: 16px; }
-            .avatar-panel h2 { font-size: 16px; }
-            .chat-panel { padding: 16px; }
-        }
-
-        /* ========== 手机适配 ========== */
         @media (max-width: 768px) {
-            .top-app-bar { height: 56px; padding: 0 12px; }
-            .top-app-bar h1 { font-size: 17px; }
-            .main-layout {
-                flex-direction: column; padding: 12px 8px;
-                padding-bottom: 80px; gap: 12px;
-            }
-            .avatar-panel {
-                width: 100%; position: static;
-                flex-direction: row; flex-wrap: wrap; justify-content: center;
-                padding: 14px; gap: 10px; border-radius: 20px;
-            }
+            .main-layout { flex-direction: column; padding: 12px 8px 80px; }
+            .avatar-panel { width: 100%; position: static; flex-direction: row; flex-wrap: wrap; padding: 14px; }
             .avatar-frame { width: 100px; height: 130px; border-radius: 14px; }
-            .avatar-panel h2 { font-size: 15px; }
-            .avatar-panel p { display: none; }
-            .chip-row { width: 100%; justify-content: center; }
             .chat-panel { border-radius: 20px; padding: 12px; }
-            .chat-history { min-height: 250px; }
             .message { max-width: 90%; }
-            .message .bubble { font-size: 13px; padding: 8px 14px; }
-            .bottom-nav { display: block; }
-            .input-bar { border-radius: 20px; }
-            .fab { width: 40px; height: 40px; border-radius: 12px; }
         }
 
-        /* ========== 暗色模式 ========== */
         @media (prefers-color-scheme: dark) {
             :root {
                 --md-primary: #D0BCFF;
@@ -230,37 +173,54 @@
                 --md-surface-variant: #2B2930;
                 --md-on-surface-variant: #CAC4D0;
                 --md-outline: #938F99;
-                --md-outline-variant: #49454F;
-                --md-error: #F2B8B5;
             }
-            .fab { background: var(--md-primary-container); color: var(--md-on-primary-container); }
         }
     </style>
 </head>
 <body>
-    <!-- 顶部栏 -->
     <header class="top-app-bar">
-        <span class="icon">🎓</span>
+        <span style="font-size:24px;">🎓</span>
         <h1>校园3D智能导览</h1>
     </header>
 
-    <!-- 主布局 -->
     <div class="main-layout">
-        <!-- 左侧：数字人 -->
+        <!-- 左侧：纯 CSS 动画数字人 -->
         <aside class="avatar-panel">
-            <div class="avatar-frame">
-                <iframe id="avatarFrame" src="" allow="camera; microphone"></iframe>
-                <div class="avatar-fallback" id="avatarFallback">🧑‍🏫</div>
+            <div class="avatar-frame" style="
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+                display: flex; align-items: center; justify-content: center;
+                flex-direction: column; gap: 12px;
+            ">
+                <div style="
+                    width: 120px; height: 120px;
+                    background: rgba(255,255,255,0.95);
+                    border-radius: 50%;
+                    display: flex; align-items: center; justify-content: center;
+                    font-size: 70px;
+                    animation: float 3s ease-in-out infinite;
+                    box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+                    position: relative;
+                ">
+                    🧑‍🏫
+                    <div class="status-dot" id="statusDot" style="
+                        position: absolute; bottom: 6px; right: 6px;
+                    "></div>
+                </div>
+                <div style="color: white; font-size: 14px; font-weight: 500;" id="statusText">
+                    正在聆听...
+                </div>
+                <div class="dots" id="thinkingDots" style="color: white; display: none;">
+                    <span>●</span><span>●</span><span>●</span>
+                </div>
             </div>
             <h2>虚拟导览员</h2>
-            <p style="font-size:12px;opacity:0.7;">Material You</p>
+            <p style="font-size:12px;opacity:0.7;">Material You Design</p>
             <div class="chip-row">
                 <button class="chip active" id="ttsChip" onclick="toggleTTS()">🔊 语音</button>
-                <button class="chip" onclick="changeAvatar()">🔄 换形象</button>
             </div>
         </aside>
 
-        <!-- 右侧：对话 -->
+        <!-- 右侧：对话区 -->
         <main class="chat-panel">
             <select class="model-select" id="modelSelect">
                 <option value="deepseek-v4-flash">⚡ V4 Flash</option>
@@ -279,43 +239,16 @@
         </main>
     </div>
 
-    <!-- 底部导航（手机可见） -->
-    <nav class="bottom-nav">
-        <div class="nav-items">
-            <div class="nav-item active" onclick="switchTab('chat')">
-                <span class="nav-icon">💬</span>
-                <span>对话</span>
-            </div>
-            <div class="nav-item" onclick="switchTab('avatar')">
-                <span class="nav-icon">🤖</span>
-                <span>数字人</span>
-            </div>
-            <div class="nav-item" onclick="switchTab('settings')">
-                <span class="nav-icon">⚙️</span>
-                <span>设置</span>
-            </div>
-        </div>
-    </nav>
-
     <script>
-        const API_KEY = "sk-faebb6bb24744fb3a3d2b8f68c942a7e"; // ← 替换
+        const API_KEY = "你的API密钥"; // ← 替换为你的真实密钥
         const API_URL = "https://api.deepseek.com/chat/completions";
         let ttsEnabled = true;
         const synth = window.speechSynthesis;
-        const avatars = ["64d8e1b6e5b2a8e3a1f4c5d7","64d8e2c4e5b2a8e3a1f4c5d8","64d8e3a1e5b2a8e3a1f4c5d9"];
-        let avatarIdx = 0;
 
-        // 初始化
-        function init() { loadAvatar(); setTimeout(() => speak("你好，我是校园导览员，请问有什么可以帮你？"), 600); }
-        function loadAvatar() {
-            const f = document.getElementById("avatarFrame"), fb = document.getElementById("avatarFallback");
-            f.src = `https://demo.readyplayer.me/avatar?id=${avatars[avatarIdx]}&frame=true`;
-            f.style.display = "block"; fb.style.display = "none";
-            f.onerror = () => { f.style.display = "none"; fb.style.display = "flex"; };
+        function init() {
+            setTimeout(() => speak("你好！我是校园智能导览员，有什么可以帮你？"), 500);
         }
-        function changeAvatar() { avatarIdx = (avatarIdx + 1) % avatars.length; loadAvatar(); }
 
-        // TTS
         function toggleTTS() {
             ttsEnabled = !ttsEnabled;
             const c = document.getElementById("ttsChip");
@@ -323,13 +256,15 @@
             c.classList.toggle("active", ttsEnabled);
             if(!ttsEnabled) synth.cancel();
         }
+
         function speak(t) {
-            if(!ttsEnabled) return; synth.cancel();
+            if(!ttsEnabled) return;
+            synth.cancel();
             const u = new SpeechSynthesisUtterance(t);
-            u.lang = "zh-CN"; u.rate = 1.05; u.volume = 0.9; synth.speak(u);
+            u.lang = "zh-CN"; u.rate = 1.05; u.volume = 0.9;
+            synth.speak(u);
         }
 
-        // 消息
         function addMsg(role, t) {
             const h = document.getElementById("chatHistory");
             const d = document.createElement("div");
@@ -337,13 +272,32 @@
             d.innerHTML = `<span class="sender">${role==="user"?"你":"导览员"}</span><div class="bubble">${escapeHTML(t)}</div>`;
             h.appendChild(d); h.scrollTop = h.scrollHeight;
         }
-        function escapeHTML(s) { const d = document.createElement("div"); d.textContent = s; return d.innerHTML; }
-        function loading(v) {
-            const b = document.getElementById("sendBtn"), i = document.getElementById("questionInput");
-            b.disabled = v; i.disabled = v;
+
+        function escapeHTML(s) {
+            const d = document.createElement("div"); d.textContent = s; return d.innerHTML;
         }
 
-        // 核心问答
+        function setStatus(state) {
+            const dot = document.getElementById("statusDot");
+            const text = document.getElementById("statusText");
+            const dots = document.getElementById("thinkingDots");
+            dot.classList.remove("thinking");
+            dots.style.display = "none";
+            if(state === "thinking") {
+                text.textContent = "正在思考...";
+                dot.classList.add("thinking");
+                dots.style.display = "block";
+            } else {
+                text.textContent = "正在聆听...";
+            }
+        }
+
+        function loading(v) {
+            document.getElementById("sendBtn").disabled = v;
+            document.getElementById("questionInput").disabled = v;
+            setStatus(v ? "thinking" : "idle");
+        }
+
         async function sendMessage() {
             const i = document.getElementById("questionInput"), q = i.value.trim();
             if(!q) return;
@@ -353,22 +307,18 @@
                 const r = await fetch(API_URL, {
                     method:"POST",
                     headers:{"Content-Type":"application/json","Authorization":`Bearer ${API_KEY}`},
-                    body:JSON.stringify({ model:m, messages:[{role:"user",content:`你是校园导览员，只答校园问题，简洁亲切不超3句。问题：${q}`}], temperature:0.1, max_tokens:200 })
+                    body:JSON.stringify({
+                        model:m,
+                        messages:[{role:"user",content:`你是校园导览员，只答校园问题，简洁亲切不超3句话。问题：${q}`}],
+                        temperature:0.1, max_tokens:200
+                    })
                 });
                 const d = await r.json();
                 const a = d.choices?.[0]?.message?.content || "服务暂不可用。";
                 addMsg("assistant", a); speak(a);
-            } catch(e) { addMsg("assistant","网络连接失败，请稍后重试。"); }
-            finally { loading(false); }
-        }
-
-        // 移动端标签切换
-        function switchTab(tab) {
-            const items = document.querySelectorAll(".nav-item");
-            items.forEach(i => i.classList.remove("active"));
-            if(tab === "chat") items[0].classList.add("active");
-            if(tab === "avatar") items[1].classList.add("active");
-            if(tab === "settings") items[2].classList.add("active");
+            } catch(e) {
+                addMsg("assistant","网络连接失败，请稍后重试。");
+            } finally { loading(false); }
         }
 
         init();
