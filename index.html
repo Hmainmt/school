@@ -33,22 +33,22 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        .top-app-bar {
+        。top-app-bar {
             background: var(--md-surface);
             padding: 0 16px; height: 64px;
             display: flex; align-items: center; gap: 12px;
             box-shadow: var(--elevation-1);
             position: sticky; top: 0; z-index: 20;
         }
-        .top-app-bar h1 { font-size: 20px; font-weight: 500; flex: 1; }
+        。top-app-bar h1 { font-size: 20px; font-weight: 500; flex: 1; }
 
-        .main-layout {
+        。main-layout {
             display: flex; flex: 1;
             max-width: 1400px; margin: 0 auto; width: 100%;
             padding: 20px 16px; gap: 20px;
         }
 
-        .avatar-panel {
+        。avatar-panel {
             width: 340px; flex-shrink: 0;
             background: var(--md-surface-variant);
             border-radius: 28px; padding: 24px;
@@ -56,23 +56,23 @@
             box-shadow: var(--elevation-1);
             height: fit-content; position: sticky; top: 84px;
         }
-        .avatar-frame {
+        。avatar-frame {
             width: 100%; aspect-ratio: 3/4;
             border-radius: 20px; overflow: hidden;
             box-shadow: var(--elevation-2);
         }
-        .avatar-panel h2 { font-size: 18px; font-weight: 500; color: var(--md-on-surface-variant); }
-        .chip-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
-        .chip {
+        。avatar-panel h2 { font-size: 18px; font-weight: 500; color: var(--md-on-surface-variant); }
+        。chip-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+        。chip {
             padding: 6px 14px; border-radius: 8px;
             border: 1px solid var(--md-outline);
             background: transparent; color: var(--md-on-surface-variant);
             font-size: 13px; font-weight: 500; cursor: pointer;
             transition: all 0.2s; font-family: inherit;
         }
-        .chip.active { background: var(--md-secondary-container); color: var(--md-on-secondary-container); border-color: transparent; }
+        。chip.active { background: var(--md-secondary-container); color: var(--md-on-secondary-container); border-color: transparent; }
 
-        .chat-panel {
+        。chat-panel {
             flex: 1; display: flex; flex-direction: column;
             background: var(--md-surface); border-radius: 28px;
             padding: 20px; box-shadow: var(--elevation-1); min-width: 0;
@@ -104,7 +104,7 @@
             background: var(--md-surface-variant); border-radius: 24px;
             padding: 4px 4px 4px 16px; box-shadow: var(--elevation-1);
         }
-        .input-bar input {
+        。input-bar input {
             flex: 1; border: none; background: transparent;
             font-size: 15px; outline: none; color: var(--md-on-surface); font-family: inherit;
         }
@@ -128,7 +128,7 @@
             50% { opacity: 1; transform: scale(1.15); }
         }
         @keyframes thinkingPulse {
-            0%, 100% { background: #4caf50; }
+            0%， 100% { background: #4caf50; }
             50% { background: #ff9800; }
         }
         @keyframes dots {
@@ -240,7 +240,7 @@
     </div>
 
     <script>
-        const API_KEY = "你的API密钥"; // ← 替换为你的真实密钥
+        const API_KEY = "sk-faebb6bb24744fb3a3d2b8f68c942a7e"; // ← 替换为你的真实密钥
         const API_URL = "https://api.deepseek.com/chat/completions";
         let ttsEnabled = true;
         const synth = window.speechSynthesis;
